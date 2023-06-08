@@ -1,20 +1,21 @@
 import mongoose from "mongoose";
 
 const CustomerSchema = new mongoose.Schema({
-    firstName: {type: String, require: true},
-    lastName: {type: String, require: true},
-    nickName: {type: String, require: true},
     email: {type: String, require: true},
-    avatar: {type: String, require: true},
-    birthdate: {type: Date, require: true},
-    location: {type: Date, require: true},
-    address: {type: String, require: true},
-    phone: {type: Number, require: true},
-    favoriteDrink: {type: String, require: true},
-    coffeeTime: {type: String, require: true},
-    milkType: {type: String, require: true},
-    coffeesPerDay: {type: Number, require: true},
-    preferCompany: {type: Boolean, require: true},
+    password: {type: String, required: true},
+    firstName: {type: String, require: false},
+    lastName: {type: String, require: false},
+    nickName: {type: String, require: false},
+    avatar: {type: String, require: false},
+    birthdate: {type: Date, require: false},
+    location: {type: Date, require: false},
+    address: {type: String, require: false},
+    phone: {type: Number, require: false},
+    favoriteDrink: {type: String, require: false},
+    coffeeTime: {type: String, require: false},
+    milkType: {type: String, require: false},
+    coffeesPerDay: {type: Number, require: false},
+    coffeePreference: {type: Boolean, require: false},
     allOrders: [{type: mongoose.Schema.Types.ObjectId, ref: 'Orders'}]
 })
 
