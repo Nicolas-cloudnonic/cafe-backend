@@ -18,6 +18,7 @@ app.get('/', (req, res) => {
     res.send({message: 'Hello World!'})
 })
 
+app.use('/api/v1/auth', cafeRoutes)
 app.use('/api/v1/cafes', cafeRoutes)
 app.use('/api/v1/orders', orderRoutes)
 app.use('/api/v1/products', productRoutes)
