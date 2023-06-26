@@ -4,7 +4,7 @@ const OrderSchema = new mongoose.Schema({
     products: [{type: mongoose.Schema.Types.ObjectId, ref: 'Product'}],
     status: {type: String, require: true},
     customer: {type: mongoose.Schema.Types.ObjectId, ref: 'Customer'},
-    cafe: {type: mongoose.Schema.Types.ObjectId, ref: 'Cafe'},
+    store: {type: mongoose.Schema.Types.ObjectId, ref: 'Store'},
 })
 
 OrderSchema.set('timestamps', true)

@@ -4,7 +4,8 @@ import {config} from './config.js';
 import connectDB from "./mongodb/connect.js";
 
 // @import routes
-import cafeRoutes from "./routes/cafe.routes.js";
+import authRoutes from "./routes/auth.routes.js";
+import storeRoutes from "./routes/store.routes.js";
 import orderRoutes from "./routes/order.routes.js";
 import productRoutes from "./routes/product.routes.js";
 import customerRoutes from "./routes/customer.routes.js";
@@ -18,8 +19,8 @@ app.get('/', (req, res) => {
     res.send({message: 'Hello World!'})
 })
 
-app.use('/api/v1/auth', cafeRoutes)
-app.use('/api/v1/cafes', cafeRoutes)
+app.use('/api/v1/auth', authRoutes)
+app.use('/api/v1/stores', storeRoutes)
 app.use('/api/v1/orders', orderRoutes)
 app.use('/api/v1/products', productRoutes)
 app.use('/api/v1/customers', customerRoutes)

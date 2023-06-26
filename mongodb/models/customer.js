@@ -16,7 +16,7 @@ const CustomerSchema = new mongoose.Schema({
     milkType: {type: String, require: false},
     coffeesPerDay: {type: Number, require: false},
     coffeePreference: {type: Boolean, require: false},
-    allOrders: [{type: mongoose.Schema.Types.ObjectId, ref: 'Orders'}]
+    allOrders: [{type: mongoose.Schema.Types.ObjectId, ref: 'Order'}]
 })
 
 CustomerSchema.set('timestamps', true)

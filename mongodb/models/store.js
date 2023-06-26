@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const CafeSchema = new mongoose.Schema({
+const StoreSchema = new mongoose.Schema({
     name: {type: String, require: true},
     email: {type: String, require: true},
     password: {type: String, required: true},
@@ -13,8 +13,8 @@ const CafeSchema = new mongoose.Schema({
     allOrders: [{type: mongoose.Schema.Types.ObjectId, ref: 'Order'}]
 })
 
-CafeSchema.set('timestamps', true)
+StoreSchema.set('timestamps', true)
 
-const cafeModel = mongoose.model('Cafe', CafeSchema)
+const storeModel = mongoose.model('Store', StoreSchema)
 
-export default cafeModel
+export default storeModel

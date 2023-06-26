@@ -6,7 +6,7 @@ const getOrderDetail = async (req, res) => {
 }
 const createOrder = async (req, res) => {
     try {
-        const {products, status, customer, cafe} = req.body
+        const {products, status, customer, store} = req.body
 
         const newOrder = await Order.create({
 
