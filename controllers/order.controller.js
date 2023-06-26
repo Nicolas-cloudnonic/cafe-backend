@@ -1,7 +1,6 @@
 import Order from "../mongodb/models/order.js";
 import Store from "../mongodb/models/store.js";
 import Customer from "../mongodb/models/customer.js";
-import Product from "../mongodb/models/product.js";
 
 const getAllOrders = async (req, res) => {
     try {
@@ -37,7 +36,7 @@ const getAllOrders = async (req, res) => {
 const getOrderDetail = async (req, res) => {
     try {
         const orderId = req.params.id;
-        const order = await Order.findById(orderId)
+        const order = await Order.findById(orderId).populate('store').populate('customer')
 
         if (order) {
             return res.status(200).json(order);
