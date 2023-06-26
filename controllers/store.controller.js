@@ -4,10 +4,11 @@ const getAllStores = async (req, res) => {
     try {
         const store = await Store.find({})
 
-        if(store) return res.status(200).json(store)
-
-        return res.status(200).json([])
-
+        if(store) {
+            return res.status(200).json(store)
+        } else {
+            return res.status(200).json([])
+        }
     } catch (error) {
         res.status(500).json({message: error.message})
     }

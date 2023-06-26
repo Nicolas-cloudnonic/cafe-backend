@@ -4,10 +4,11 @@ const getAllCustomers = async (req, res) => {
     try {
         const customer = await Customer.find({})
 
-        if(customer) return res.status(200).json(customer)
-
-        return res.status(200).json([])
-
+        if(customer) {
+            return res.status(200).json(customer)
+        } else {
+            return res.status(200).json([])
+        }
     } catch (error) {
         res.status(500).json({message: error.message})
     }
