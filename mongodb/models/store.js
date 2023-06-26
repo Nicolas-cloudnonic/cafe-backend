@@ -9,8 +9,6 @@ const StoreSchema = new mongoose.Schema({
     coffeeProvider: {type: String, require: false},
     address: {type: String, require: false},
     location: {type: String, require: false},
-    allProducts: [{type: mongoose.Schema.Types.ObjectId, ref: 'Product'}],
-    allOrders: [{type: mongoose.Schema.Types.ObjectId, ref: 'Order'}]
 })
 
 StoreSchema.set('timestamps', true)

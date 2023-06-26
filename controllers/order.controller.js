@@ -5,8 +5,8 @@ import Customer from "../mongodb/models/customer.js";
 const getAllOrders = async (req, res) => {
     try {
         const entityId = req.params.entity
-        const store = Store.findById(entityId)
-        const customer = Customer.findById(entityId)
+        const store = await Store.findById(entityId)
+        const customer = await Customer.findById(entityId)
         if (!store && !customer) {
             return res.status(404).json({message: 'Entity not found'});
         }
