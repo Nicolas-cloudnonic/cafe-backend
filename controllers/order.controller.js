@@ -12,7 +12,7 @@ const getAllOrders = async (req, res) => {
         }
 
         if(store) {
-            const orders = await Order.find({store: {_id: entityId}})
+            const orders = await Order.find({store: {_id: entityId}})?.populate('customer')?.populate('store')
             if(orders) {
                 return res.status(200).json(orders)
             } else {
@@ -21,7 +21,7 @@ const getAllOrders = async (req, res) => {
         }
 
         if(customer) {
-            const orders = await Order.find({customer: {_id: entityId}})
+            const orders = await Order.find({customer: {_id: entityId}})?.populate('customer')?.populate('store')
             if(orders) {
                 return res.status(200).json(orders)
             } else {
@@ -36,7 +36,7 @@ const getAllOrders = async (req, res) => {
 const getOrderDetail = async (req, res) => {
     try {
         const orderId = req.params.id;
-        const order = await Order.findById(orderId).populate('store').populate('customer')
+        const order = await Order.findById(orderId)?.populate('store')?.populate('customer')
 
         if (order) {
             return res.status(200).json(order);
@@ -75,7 +75,7 @@ const createOrder = async (req, res) => {
 const updateOrder = async (req, res) => {
     try {
         const orderId = req.params.id
-        const updatedOrder = await Order.findByIdAndUpdate(orderId, req.body, { new: true });
+        const updatedOrder = await Order.findByIdAndUpdate(orderId, req.body, { new: true })?.populate('store')?.populate('customer');
 
         if(updatedOrder) {
             return res.status(200).json(updatedOrder)

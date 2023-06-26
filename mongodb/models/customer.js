@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const CustomerSchema = new mongoose.Schema({
     email: {type: String, require: true},
-    password: {type: String, required: true},
+    password: {type: String, required: true, select: false},
     firstName: {type: String, require: false},
     lastName: {type: String, require: false},
     nickName: {type: String, require: false},

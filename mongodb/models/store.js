@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const StoreSchema = new mongoose.Schema({
     name: {type: String, require: true},
     email: {type: String, require: true},
-    password: {type: String, required: true},
+    password: {type: String, required: true, select: false},
     avatar: {type: String, require: false},
     description: {type: String, require: false},
     coffeeProvider: {type: String, require: false},
