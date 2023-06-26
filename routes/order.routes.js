@@ -3,10 +3,10 @@ import {createOrder, deleteOrder, updateOrder, getAllOrders, getOrderDetail} fro
 
 const router = express.Router()
 
-router.route('/').get(getAllOrders)
-router.route('/:id').get(getOrderDetail)
-router.route('/').post(createOrder)
-router.route('/:id').patch(updateOrder)
-router.route('/:id').delete(deleteOrder)
+router.route('/:entity').get(getAllOrders)
+router.route('/:entity/:id').get(getOrderDetail)
+router.route('/:store/').post(createOrder)
+router.route('/:entity/:id').patch(updateOrder)
+router.route('/:entity/:id').delete(deleteOrder)
 
 export default router
